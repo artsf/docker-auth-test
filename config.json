@@ -1,0 +1,15 @@
+{
+	"description": "Test Authz plugin",
+	"documentation": "https://docs.docker.com/engine/extend/plugins/",
+	"entrypoint": ["/docker-auth-test"],
+	"network": {
+		   "type": "host"
+		   },
+	"interface" : {
+		   "types": ["docker.authz/1.0"],
+		   "socket": "/dap.sock"
+	},
+	"linux": {
+		"capabilities": ["CAP_SYS_ADMIN"]
+	}
+}

@@ -1,0 +1,9 @@
+package: github.com/artsf/docker-auth-test
+import:
+- package: github.com/docker/go-plugins-helpers
+  subpackages:
+  - authorization
+- package: github.com/docker/docker
+  version: 9c0473fa652307c842f0f16297c4a38d409dfb60
+  subpackages:
+  - pkg/authorization
