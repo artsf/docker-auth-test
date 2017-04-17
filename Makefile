@@ -14,7 +14,7 @@ setupmac:
 	@echo  Setup...
 	@echo ================================================
 	@echo
-	brew reinstall go --with-cc-all
+	brew reinstall go --without-cgo
 	brew install glide
 
 clean:
@@ -36,7 +36,7 @@ binary:
 	@echo ================================================
 	@echo
 	glide install
-	go build -o ${FILE_NAME} --ldflags '-extldflags "-static"'
+	GOOS=linux && GOARCH=amd64 && CGO_ENABLED=0 && go build -o ${FILE_NAME} --ldflags '-extldflags "-static"'
 
 rootfs:
 	@echo
